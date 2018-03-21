@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	#fancy {
+		background-color: #0f0;
+	}
+	.heading {
+		color: #fff;
+	}
+</style>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> <!--we have to compile the JSX that will run in the browser using babel-->
+    <title>Getting Started with React</title>
+</head>
+<body>
+	<div id="react-container"></div>
+
+	<script type="text/babel">
+		
+		//react dom is responsible to rendering everything on the page
+
+		//the hello class is just a class that returns some UI
+		
+		class Hello extends React.Component {
+				render() {
+					return (
+						<div id="fancy">
+							<h1 className="heading">Hello World</h1>
+						</div>
+					)
+			}
+	}
+
+		//a stateless component is a function that returns some UI
+
+		const Banner = () => (
+			<div id="fancy">
+			 <h1 className="heading">Welcome to React</h1> 
+			 <p>Have fun!</p>
+			</div>
+			 )
+
+		ReactDOM.render(
+				<Hello />,
+				document.getElementById('react-container')
+			)
+
+	</script>
+
+</body>
+</html>

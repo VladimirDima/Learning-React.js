@@ -20,15 +20,41 @@
 
 	<script type="text/babel">
 
-		const Banner = () => (
-			<div id="fancy">
-				<h1 className="heading">Welcome To React</h1>
-				<p>Have fun!</p>
-			</div>	
-		)
+		class Checkbox extends React.Component {
+			constructor(props) {
+				super(props)
+				this.state = {
+					checked: false
+				}
+				this.handleCheck = this.handleCheck.bind(this)
+			}
+
+			handleCheck() {
+				this.setState({
+					checked: !this.state.checked
+				})
+			}
+	
+
+			render() {
+
+				var msg
+				if(this.state.checked) {
+					msg = "checked"
+			} else {
+					msg = "not checked"
+		}
+				return (
+					<div>
+						<input type="checkbox" onChange={this.handleCheck} />
+						<p>This box is {msg}</p>
+					</div>
+				)
+		}
+	}
 	
 		ReactDOM.render(
-			<Banner />,
+			<Checkbox firstName="Bill" version={16}/>,
 			document.getElementById('react-container')
 		)
 
@@ -36,14 +62,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
